@@ -4,6 +4,10 @@
 .page {
   font-family: var(--font-family);
   background-color: var(--background-color);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
 }
 
@@ -42,11 +46,8 @@
 
 .header {
   height: 100vh;
+  min-height: 668px;
   padding: 10px;
-  background-image: var(--background-image);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   display: grid;
   grid-template-rows: 1fr auto 1fr;
   grid-template-columns: repeat(2, 1fr);
@@ -58,16 +59,14 @@
   align-self: flex-start;
   justify-self: end;
   position: absolute;
-  visibility: var(--is-light);
+  visibility: var(--decoration-visibility);
   display: grid;
   grid-template-columns: repeat(2, auto);
   gap: 10px;
-  block-size: 25px;
   justify-self: end;
   color: var(--accent-color);
-  font-size: var(--regular-font-size);
+  font-size: var(--font-size-regular);
   text-transform: uppercase;
-  line-height: 25px;
 }
 
 .header__decoration-dark::after {
@@ -95,8 +94,8 @@
   padding: 4px 13px;
   background-color: inherit;
   border: none;
-  font-size: var(--regular-font-size);
-  line-height: var(--regular-line-height);
+  font-size: var(--font-size-regular);
+  line-height: var(--line-height-regular);
   text-transform: lowercase;
   color: var(--decoration-color);
   cursor: pointer;
@@ -113,7 +112,7 @@
   color: var(--header1-color);
   text-shadow: 4px 4px 0 var(--accent-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  line-height: var(--small-line-height);
+  line-height: var(--line-height-smallt);
 }
 
 .header__text {
@@ -143,9 +142,9 @@
 .topic__title {
   grid-column: 1 / 4;
   color: var(--header2-color);
-  font-size: var(--regular-font-size);
-  font-weight: var(--bold-font-weight);
-  line-height: var(--large-line-height);
+  font-size: var(--font-size-regular);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-large);
 }
 
 .topic__card {
@@ -160,16 +159,16 @@
   grid-column: 1 / 4;
   color: var(--header3-color);
   background-color: var(--accent-color);
-  font-size: var(--regular-font-size);
-  font-weight: var(--bold-font-weight);
-  line-height: var(--large-line-height);
+  font-size: var(--font-size-regular);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-large);
 }
 
 .card__text {
   grid-column: 1 / 4;
   color: var(--text-color);
-  font-size: var(--regular-font-size);
-  line-height: var(--large-line-height);
+  font-size: var(--font-size-regular);
+  line-height: var(--line-height-large);
 }
 
 .topic-pictures {
@@ -188,12 +187,14 @@
 
 
 .thin-title {
-  font-weight: var(--regular-font-weight);
+  font-weight: var(--font-weight-regular);
 }
 
 /* FOOTER STYLES */
 
 .footer {
+  height: 100vh;
+  min-height: 668px;
   padding: 10px;
   block-size: 100vh;
   display: grid;
@@ -242,7 +243,7 @@
     grid-column: 2 / 3;
   }
 
-  .topic:nth-child(2) .topic__card{
+  .topic_wide-cards .topic__card {
     grid-column: 1 / 4;
   }
 
@@ -338,18 +339,17 @@
     grid-column: 2 / 4;
   }
 
-  .topic:nth-child(2) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
-
+ .topic_wide-cards {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
   }
 
-  .topic:nth-child(2) .topic__title {
+  .topic_wide-cards .topic__title {
     grid-row: span 1;
   }
 
-  .topic:nth-child(2) .topic__card{
-    grid-row: 2 / 3 ;
+  .topic_wide-cards .topic__card {
+    grid-row: 2 / 3;
     grid-column: span 1;
   }
 
